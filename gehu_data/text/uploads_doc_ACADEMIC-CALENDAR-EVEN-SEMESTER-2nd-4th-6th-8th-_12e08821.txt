@@ -1,0 +1,553 @@
+--- Page 1 ---
+1
+Thur
+1
+1
+1
+Wed
+59
+1
+Fri
+BUDH POORNIMA
+1
+Mon
+1
+Wed
+2
+Fri
+2
+Mon
+24
+2
+Mon
+2
+Thur
+60
+2
+Sat
+83
+2
+Tue
+2
+Thur
+3
+Sat
+3
+Tue
+25
+3
+Tue
+3
+Fri
+GOOD FRIDAY
+3
+3
+Wed
+3
+Fri
+4
+4
+Wed
+26
+4
+Wed
+4
+Sat
+61
+4
+Mon
+84
+4
+Thur
+4
+Sat
+5
+Mon All Even Semesters 
+Start  Day-1
+5
+Thur
+27
+5
+Thur
+5
+5
+Tue
+85 ESEP
+5
+Fri
+5
+6
+Tue
+2
+6
+Fri
+28
+6
+Fri
+6
+Mon
+62
+6
+Wed
+86 ESEP
+6
+Sat
+6
+Mon
+7
+Wed
+3
+7
+Sat
+29
+7
+Sat
+7
+Tue
+63
+7
+Thur
+87 ESEP
+7
+7
+Tue
+8
+Thur
+4
+8
+8
+8
+Wed
+64
+8
+Fri
+88 ESEP
+8
+Mon
+8
+Wed
+9
+Fri
+5
+9
+Mon
+30
+9
+Mon
+42 TEP 
+9
+Thur
+65
+9
+Sat
+89 ESEP
+9
+Tue
+9
+Thur
+10
+Sat
+6
+10
+Tue
+31
+10
+Tue
+43 TEP 
+10
+Fri
+66
+10
+10 Wed
+10
+Fri
+11
+11 Wed
+32
+11
+Wed
+44 TEP 
+11
+Sat
+67
+11
+Mon
+90 ESEP
+11 Thur
+11
+Sat
+12
+Mon
+7
+12 Thur
+33
+12 Thur
+45 TEP 
+12
+12
+Tue
+ESEP
+12
+Fri
+12
+13
+Tue
+8
+13
+Fri
+34
+13
+Fri
+46 TEP
+13
+Mon
+68
+13
+Wed
+ESEP
+13
+Sat
+13
+Mon
+Commencement of 
+Odd Semesters                
+(III, V,VII & IX)
+14
+Wed
+9
+14
+Sat
+35
+14
+Sat
+47 TEP
+14
+Tue
+AMBEDKAR JAYANTI
+14
+Thur
+ESET
+14
+14
+Tue
+15
+Thur
+10
+15
+15
+15
+Wed
+69
+15
+Fri
+ESET
+15
+Mon
+15
+Wed
+16
+Fri
+11
+16 Mon
+36
+16
+Mon
+48
+16 Thur
+70
+16
+Sat
+ESET
+16
+Tue
+16
+Thur
+17
+Sat
+12
+17
+Tue
+37
+17
+Tue
+49
+17
+Fri
+71
+17
+17 Wed
+17
+Fri
+18
+18 Wed
+38
+18
+Wed
+50
+18
+Sat
+72
+18
+Mon
+ESET
+18 Thur
+18
+Sat
+19
+Mon
+13
+19 Thur
+39
+19 Thur
+51
+19
+19
+Tue
+ESET
+19
+Fri
+19
+20
+Tue
+14
+20
+Fri
+40
+20
+Fri
+52
+20
+Mon
+73
+20
+Wed
+ESET
+20
+Sat
+20
+Mon
+Commencement of 
+1st Semester 
+Induction Program
+21
+Wed
+15
+21
+Sat
+41
+21
+Sat
+ID-UL-FITR
+21
+Tue
+74
+21
+Thur
+ESET
+21
+21
+Tue
+22
+Thur
+16
+22
+22
+22
+Wed
+75
+22
+Fri
+ESET
+22
+Mon
+22
+Wed
+23
+Fri
+17
+23 Mon
+TET 
+23
+Mon
+53
+23 Thur
+76
+23
+Sat
+ESET 
+23
+Tue
+23
+Thur
+24
+Sat
+18
+24
+Tue
+TET
+24
+Tue
+54
+24
+Fri
+77
+24
+24 Wed
+24
+Fri
+25
+25 Wed
+TET 
+25
+Wed
+55
+25
+Sat
+78
+25
+Mon
+ESET 
+25 Thur
+25
+Sat
+26
+Mon
+REPUBLIC DAY
+26 Thur
+TET 
+26 Thur
+RAMNAVAMI
+26
+26
+Tue
+ESET 
+26
+Fri
+MUHARRAM
+26
+27
+Tue
+19
+27
+Fri
+TET 
+27
+Fri
+56
+27
+Mon
+79
+27
+Wed
+ID-UL-JUHA
+27
+Sat
+27
+Mon
+28
+Wed
+20
+28
+Sat
+TET 
+28
+Sat
+57
+28
+Tue
+80
+28
+Thur
+ESET 
+28
+28
+Tue
+29
+Thur
+21
+29
+29
+Wed
+81
+29
+Fri
+ESET
+29
+Mon
+29
+Wed
+30
+Fri
+22
+30
+Mon
+58
+30 Thur
+82
+30
+Sat
+ESET 
+30
+Tue
+30
+Thur
+31
+Sat
+23
+31
+Tue
+MAHAVIR JAYANTI
+31
+31
+Fri
+              TET: TERM EVALUTION  -THEORY
+                                             ESET: END SEMESTER EXAMINATION THEORY
+              TEP: TERM EVALUATION - PRACTICAL
+Registrar
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+                                             ESEP: END SEMESTER EXAMINATION-PRACTICAL
+HOLIDAYS ARE INDICATIVE AND WILL BE NOTIFIED BY THE REGISTRAR OFFICE SEPERATELY
+May 31, 2026 to July 12, 2026: INTERNSHIP PERIOD/SEMESTER BREAK
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+VISION: " We Visualize Graphic Era Hill University as an internationally recognized, enquiry driven, ethically engaged diverse community,whose members work collaboratively for positive transformation in the world, through leadrership in 
+teaching,reasearch and social action".
+MISSION: " The mission of the university is to promote learning in true spirit and offering knowledge and skills in order to succeed as professionals. The university aims to distinguish itself as a diverse,socially resoponsible learning community 
+with a high quality scholarship and academic rigor".
+www.gehu.ac.in
+ACADEMIC CALENDAR - EVEN SEMESTER (2nd, 4th, 6th , 8th & 10th Sem) : JANUARY-JULY 2026
+JANUARY
+FEBRUARY
+MARCH
+APRIL
+MAY
+JUNE
+JULY
+SUNDAY
+SUNDAY
+MAHASHIVRATRI
+SUNDAY
+SUNDAY
+SUNDAY
+HOLI HOLIDAYS
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY
+SUNDAY

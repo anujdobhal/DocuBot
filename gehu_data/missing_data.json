@@ -1,0 +1,38 @@
+[
+    {
+        "item": "course registration",
+        "status": "not_found",
+        "searched_locations": [
+            "academics",
+            "departments",
+            "notices-and-events",
+            "exam-portal",
+            "sitemaps"
+        ],
+        "notes": "No publicly accessible standalone document found on official public website (may be restricted to internal ERP student.gehu.ac.in)."
+    },
+    {
+        "item": "grading",
+        "status": "not_found",
+        "searched_locations": [
+            "academics",
+            "departments",
+            "notices-and-events",
+            "exam-portal",
+            "sitemaps"
+        ],
+        "notes": "No publicly accessible standalone document found on official public website (may be restricted to internal ERP student.gehu.ac.in)."
+    },
+    {
+        "item": "timetable",
+        "status": "not_found",
+        "searched_locations": [
+            "academics",
+            "departments",
+            "notices-and-events",
+            "exam-portal",
+            "sitemaps"
+        ],
+        "notes": "No publicly accessible standalone document found on official public website (may be restricted to internal ERP student.gehu.ac.in)."
+    }
+]

@@ -1,0 +1,386 @@
+{
+    "syllabus": {
+        "status": "FOUND",
+        "number_of_documents": 19,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/computer-science-and-engineering/",
+            "https://gehu.ac.in/dehradun/electronics-and-communication-engineering/",
+            "https://gehu.ac.in/dehradun/mechanical-engineering/",
+            "https://gehu.ac.in/dehradun/english/",
+            "https://gehu.ac.in/dehradun/commerce/",
+            "https://gehu.ac.in/dehradun/law/",
+            "https://gehu.ac.in/dehradun/placements/",
+            "https://gehu.ac.in/dehradun/course/m-sc-animation-gaming/",
+            "https://gehu.ac.in/dehradun/course/mba-in-business-analytics/",
+            "https://gehu.ac.in/bhimtal/course/bba-with-business-analytics/"
+        ]
+    },
+    "courses": {
+        "status": "FOUND",
+        "number_of_documents": 31,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/",
+            "https://gehu.ac.in/dehradun/academic-fee-structures/",
+            "https://gehu.ac.in/dehradun/exam-portal/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/4/",
+            "https://gehu.ac.in/dehradun/computer-science-and-engineering/",
+            "https://gehu.ac.in/dehradun/electronics-and-communication-engineering/",
+            "https://gehu.ac.in/dehradun/mechanical-engineering/",
+            "https://gehu.ac.in/dehradun/civil-engineering/",
+            "https://gehu.ac.in/dehradun/management/",
+            "https://gehu.ac.in/dehradun/computer-application/"
+        ]
+    },
+    "exam schedules": {
+        "status": "FOUND",
+        "number_of_documents": 11,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://gehu.ac.in/dehradun/exam-portal/",
+            "https://gehu.ac.in/dehradun/notices-and-events/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/2/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/4/",
+            "https://gehu.ac.in/dehradun/ph-d-course-work-examination-date-sheet-january-2026-batch/",
+            "https://gehu.ac.in/haldwani/revised-date-sheet-for-back-paper-phd-course-examination/",
+            "https://ddn.gehu.ac.in/uploads/doc/Revised-Date-Sheet-for-Back-Paper-PhD-Course-Examination.pdf",
+            "https://gehu.ac.in/dehradun/uncommon-back-paper-odd-end-examination-schedule-for-december-2025/"
+        ]
+    },
+    "course registration": {
+        "status": "NOT_FOUND",
+        "number_of_documents": 0,
+        "URLs": []
+    },
+    "electives": {
+        "status": "PARTIAL",
+        "number_of_documents": 2,
+        "URLs": [
+            "https://gehu.ac.in/bhimtal/course/mba-business-analytics-program/",
+            "https://gehu.ac.in/bhimtal/course/master-of-business-administration/"
+        ]
+    },
+    "course structures": {
+        "status": "FOUND",
+        "number_of_documents": 3,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/placements/",
+            "https://gehu.ac.in/dehradun/rawe-2024-dehradun-bridging-theory-and-practice-in-agriculture/",
+            "https://gehu.ac.in/bhimtal/course/master-of-business-administration/"
+        ]
+    },
+    "attendance": {
+        "status": "FOUND",
+        "number_of_documents": 3,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/exam-portal/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/3/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/4/"
+        ]
+    },
+    "regulations": {
+        "status": "PARTIAL",
+        "number_of_documents": 1,
+        "URLs": [
+            "https://ddn.gehu.ac.in/uploads/doc/fee-refund-policy-1.pdf"
+        ]
+    },
+    "grading": {
+        "status": "NOT_FOUND",
+        "number_of_documents": 0,
+        "URLs": []
+    },
+    "CGPA": {
+        "status": "FOUND",
+        "number_of_documents": 3,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/scholarships/",
+            "https://d.gehu.ac.in/uploads/doc/Scholarship-Policy_GEHU.pdf",
+            "https://gehu.ac.in/haldwani/scholarships/"
+        ]
+    },
+    "timetable": {
+        "status": "NOT_FOUND",
+        "number_of_documents": 0,
+        "URLs": []
+    },
+    "faculty": {
+        "status": "FOUND",
+        "number_of_documents": 18,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/about-us/",
+            "https://gehu.ac.in/dehradun/electronics-and-communication-engineering/",
+            "https://gehu.ac.in/dehradun/mechanical-engineering/",
+            "https://gehu.ac.in/dehradun/civil-engineering/",
+            "https://gehu.ac.in/dehradun/management/",
+            "https://gehu.ac.in/dehradun/computer-application/",
+            "https://gehu.ac.in/dehradun/commerce/",
+            "https://gehu.ac.in/dehradun/pharmacy/",
+            "https://gehu.ac.in/dehradun/allied-sciences/",
+            "https://gehu.ac.in/dehradun/law/"
+        ]
+    },
+    "hostel": {
+        "status": "FOUND",
+        "number_of_documents": 16,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/",
+            "https://gehu.ac.in/dehradun/about-us/",
+            "https://gehu.ac.in/dehradun/admissions/brochure/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://gehu.ac.in/dehradun/admissions/",
+            "https://ddn.gehu.ac.in/uploads/doc/HostelMessFeeGEUGEHUDehradunGEHUBhimtalCampus.pdf",
+            "https://ddn-gehu-ac-in.s3-accelerate.amazonaws.com/uploads/doc/GEHU-Hostel-fee2026-27.pdf",
+            "https://gehu.ac.in/dehradun/agriculture/",
+            "https://gehu.ac.in/dehradun/notice-regarding-term-evaluation-special-back-theory-examination-placement-drive-september-2026/",
+            "https://gehu.ac.in/dehradun/anti-ragging/"
+        ]
+    },
+    "bus": {
+        "status": "PARTIAL",
+        "number_of_documents": 2,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/civil-engineering/",
+            "https://gehu.ac.in/dehradun/course/diploma-in-civil-engineering/"
+        ]
+    },
+    "library": {
+        "status": "FOUND",
+        "number_of_documents": 18,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/",
+            "https://gehu.ac.in/dehradun/about-us/",
+            "https://gehu.ac.in/dehradun/admissions/brochure/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://gehu.ac.in/dehradun/computer-science-and-engineering/",
+            "https://gehu.ac.in/dehradun/mechanical-engineering/",
+            "https://gehu.ac.in/dehradun/civil-engineering/",
+            "https://gehu.ac.in/dehradun/computer-application/",
+            "https://gehu.ac.in/dehradun/commerce/",
+            "https://gehu.ac.in/dehradun/law/"
+        ]
+    },
+    "scholarships": {
+        "status": "FOUND",
+        "number_of_documents": 17,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/about-us/",
+            "https://gehu.ac.in/dehradun/admissions/brochure/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://gehu.ac.in/dehradun/admissions/",
+            "https://gehu.ac.in/dehradun/scholarships/",
+            "https://ddn-gehu-ac-in.s3-accelerate.amazonaws.com/uploads/doc/ACADEMIC-CALENDAR-EVEN-SEMESTER-2nd-4th-6th-8th-10th-Sem-JANUARY-JULY-2026.pdf",
+            "https://d.gehu.ac.in/uploads/doc/Scholarship-Policy_GEHU.pdf",
+            "https://gehu.ac.in/dehradun/notice-regarding-term-evaluation-special-back-theory-examination-placement-drive-september-2026/",
+            "https://gehu.ac.in/dehradun/schedule-for-end-semester-examination-placement-drive-year-back-august-2026/",
+            "https://gehu.ac.in/dehradun/ph-d-course-work-examination-date-sheet-january-2026-batch/"
+        ]
+    },
+    "anti-ragging": {
+        "status": "FOUND",
+        "number_of_documents": 11,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/admissions/brochure/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://gehu.ac.in/dehradun/notice-regarding-term-evaluation-special-back-theory-examination-placement-drive-september-2026/",
+            "https://gehu.ac.in/dehradun/anti-ragging/",
+            "https://gehu.ac.in/dehradun/schedule-for-end-semester-examination-placement-drive-year-back-august-2026/",
+            "https://gehu.ac.in/dehradun/ph-d-course-work-examination-date-sheet-january-2026-batch/",
+            "https://gehu.ac.in/dehradun/schedule-for-career-skills-back-exam-even-semester-may-2026/",
+            "https://gehu.ac.in/dehradun/schedule-for-basic-mathematics-ii-bbc-222-bridge-course-regular-examination-may-2026/",
+            "https://gehu.ac.in/dehradun/schedule-for-end-even-semester-examination-theory-regular-and-back-paper-may-2026-for-ma-english-iv-sem/",
+            "https://gehu.ac.in/haldwani/admissions/brochure/"
+        ]
+    },
+    "grievance": {
+        "status": "FOUND",
+        "number_of_documents": 13,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/",
+            "https://gehu.ac.in/dehradun/admissions/brochure/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://ddn.gehu.ac.in/uploads/doc/fee-refund-policy-1.pdf",
+            "https://gehu.ac.in/dehradun/notices-and-events/",
+            "https://gehu.ac.in/dehradun/notice-regarding-term-evaluation-special-back-theory-examination-placement-drive-september-2026/",
+            "https://gehu.ac.in/dehradun/grievance-redressal-form/",
+            "https://gehu.ac.in/dehradun/schedule-for-end-semester-examination-placement-drive-year-back-august-2026/",
+            "https://gehu.ac.in/dehradun/student-area/",
+            "https://gehu.ac.in/dehradun/ph-d-course-work-examination-date-sheet-january-2026-batch/"
+        ]
+    },
+    "medical": {
+        "status": "FOUND",
+        "number_of_documents": 6,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/about-us/",
+            "https://gehu.ac.in/dehradun/admissions/",
+            "https://gehu.ac.in/dehradun/management/",
+            "https://gehu.ac.in/dehradun/commerce/",
+            "https://gehu.ac.in/dehradun/allied-sciences/",
+            "https://gehu.ac.in/dehradun/pharmacy/faculty/archana-dhyani/"
+        ]
+    },
+    "sports": {
+        "status": "FOUND",
+        "number_of_documents": 7,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/",
+            "https://gehu.ac.in/dehradun/about-us/",
+            "https://gehu.ac.in/dehradun/notices-and-events/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/2/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/4/",
+            "https://gehu.ac.in/dehradun/university-life/sports/",
+            "https://gehu.ac.in/bhimtal/course/mba-business-analytics-program/"
+        ]
+    },
+    "clubs": {
+        "status": "FOUND",
+        "number_of_documents": 8,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/about-us/",
+            "https://gehu.ac.in/dehradun/computer-science-and-engineering/",
+            "https://gehu.ac.in/dehradun/mechanical-engineering/",
+            "https://gehu.ac.in/dehradun/civil-engineering/",
+            "https://gehu.ac.in/dehradun/english/",
+            "https://gehu.ac.in/dehradun/agriculture/",
+            "https://gehu.ac.in/bhimtal/course/bba-with-business-analytics/",
+            "https://gehu.ac.in/dehradun/course/diploma-in-civil-engineering/"
+        ]
+    },
+    "admission": {
+        "status": "FOUND",
+        "number_of_documents": 49,
+        "URLs": [
+            "https://gehu.ac.in/",
+            "https://gehu.ac.in/dehradun/admissions/brochure/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://gehu.ac.in/dehradun/academics/calendar/",
+            "https://gehu.ac.in/dehradun/admissions/",
+            "https://ddn.gehu.ac.in/uploads/doc/fee-refund-policy-1.pdf",
+            "https://gehu.ac.in/dehradun/scholarships/",
+            "https://gehu.ac.in/dehradun/exam-portal/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/3/",
+            "https://gehu.ac.in/dehradun/computer-science-and-engineering/"
+        ]
+    },
+    "departments": {
+        "status": "FOUND",
+        "number_of_documents": 47,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/about-us/",
+            "https://gehu.ac.in/dehradun/admissions/brochure/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://gehu.ac.in/dehradun/admissions/",
+            "https://ddn.gehu.ac.in/uploads/doc/fee-refund-policy-1.pdf",
+            "https://gehu.ac.in/dehradun/academic-fee-structures/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/3/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/4/",
+            "https://gehu.ac.in/dehradun/computer-science-and-engineering/",
+            "https://gehu.ac.in/dehradun/electronics-and-communication-engineering/"
+        ]
+    },
+    "contacts": {
+        "status": "FOUND",
+        "number_of_documents": 12,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/admissions/brochure/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://gehu.ac.in/dehradun/admissions/",
+            "https://gehu.ac.in/dehradun/notice-regarding-term-evaluation-special-back-theory-examination-placement-drive-september-2026/",
+            "https://gehu.ac.in/dehradun/schedule-for-end-semester-examination-placement-drive-year-back-august-2026/",
+            "https://gehu.ac.in/dehradun/ph-d-course-work-examination-date-sheet-january-2026-batch/",
+            "https://gehu.ac.in/dehradun/contact/",
+            "https://gehu.ac.in/dehradun/schedule-for-career-skills-back-exam-even-semester-may-2026/",
+            "https://gehu.ac.in/dehradun/schedule-for-basic-mathematics-ii-bbc-222-bridge-course-regular-examination-may-2026/",
+            "https://gehu.ac.in/dehradun/schedule-for-end-even-semester-examination-theory-regular-and-back-paper-may-2026-for-ma-english-iv-sem/"
+        ]
+    },
+    "certificates": {
+        "status": "FOUND",
+        "number_of_documents": 19,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/",
+            "https://ddn.gehu.ac.in/uploads/doc/fee-refund-policy-1.pdf",
+            "https://gehu.ac.in/dehradun/scholarships/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/3/",
+            "https://gehu.ac.in/dehradun/management/",
+            "https://gehu.ac.in/dehradun/computer-application/",
+            "https://gehu.ac.in/dehradun/commerce/",
+            "https://gehu.ac.in/dehradun/agriculture/",
+            "https://d.gehu.ac.in/uploads/doc/Scholarship-Policy_GEHU.pdf",
+            "https://gehu.ac.in/dehradun/course/mba-in-business-analytics/"
+        ]
+    },
+    "academic calendar": {
+        "status": "FOUND",
+        "number_of_documents": 20,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/admissions/brochure/",
+            "https://gehu.ac.in/dehradun/academic-calendar-for-the-even-semester-ii-iv-vi-viii-x-january-july-2026/",
+            "https://gehu.ac.in/dehradun/academic-calendar-2025-26-july-december-i-semester/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://gehu.ac.in/dehradun/academics/calendar/",
+            "https://ddn-gehu-ac-in.s3-accelerate.amazonaws.com/uploads/doc/ACADEMIC-CALENDAR-EVEN-SEMESTER-2nd-4th-6th-8th-10th-Sem-JANUARY-JULY-2026.pdf",
+            "https://ddn-gehu-ac-in.s3-accelerate.amazonaws.com/uploads/doc/Academic-Calendar-2025-26-July-December-I-Semester.pdf",
+            "https://d.gehu.ac.in/uploads/doc/Academic-Calendar-July-December-2026-27-I-Semester.pdf",
+            "https://d.gehu.ac.in/uploads/doc/Academic-Calendar-July-December-2026-27-III-V-VII-and-IX-Semester.pdf",
+            "https://ddn-gehu-ac-in.s3-accelerate.amazonaws.com/uploads/doc/Academic-Calendar-2025-26-July-December-III-V-VII-and-IX-Semesters-1.pdf"
+        ]
+    },
+    "examinations": {
+        "status": "FOUND",
+        "number_of_documents": 58,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/",
+            "https://gehu.ac.in/dehradun/admissions/brochure/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://gehu.ac.in/dehradun/academics/calendar/",
+            "https://gehu.ac.in/dehradun/admissions/",
+            "https://gehu.ac.in/dehradun/scholarships/",
+            "https://ddn-gehu-ac-in.s3-accelerate.amazonaws.com/uploads/doc/ACADEMIC-CALENDAR-EVEN-SEMESTER-2nd-4th-6th-8th-10th-Sem-JANUARY-JULY-2026.pdf",
+            "https://gehu.ac.in/dehradun/exam-portal/",
+            "https://gehu.ac.in/dehradun/notices-and-events/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/2/"
+        ]
+    },
+    "placements": {
+        "status": "FOUND",
+        "number_of_documents": 25,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/",
+            "https://gehu.ac.in/dehradun/about-us/",
+            "https://gehu.ac.in/dehradun/admissions/brochure/",
+            "https://gehu.ac.in/dehradun/schedule-for-term-evaluation-theory-regular-back-examination-september-2026/",
+            "https://gehu.ac.in/dehradun/admissions/",
+            "https://gehu.ac.in/dehradun/exam-portal/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/2/",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/3/",
+            "https://gehu.ac.in/dehradun/electronics-and-communication-engineering/",
+            "https://gehu.ac.in/dehradun/management/"
+        ]
+    },
+    "internship": {
+        "status": "FOUND",
+        "number_of_documents": 21,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/",
+            "https://gehu.ac.in/dehradun/about-us/",
+            "https://ddn-gehu-ac-in.s3-accelerate.amazonaws.com/uploads/doc/ACADEMIC-CALENDAR-EVEN-SEMESTER-2nd-4th-6th-8th-10th-Sem-JANUARY-JULY-2026.pdf",
+            "https://gehu.ac.in/dehradun/notices-and-events/page/4/",
+            "https://gehu.ac.in/dehradun/computer-science-and-engineering/",
+            "https://gehu.ac.in/dehradun/electronics-and-communication-engineering/",
+            "https://gehu.ac.in/dehradun/management/",
+            "https://gehu.ac.in/dehradun/computer-application/",
+            "https://gehu.ac.in/dehradun/commerce/",
+            "https://gehu.ac.in/dehradun/agriculture/"
+        ]
+    },
+    "history": {
+        "status": "PARTIAL",
+        "number_of_documents": 2,
+        "URLs": [
+            "https://gehu.ac.in/dehradun/",
+            "https://gehu.ac.in/dehradun/about-us/"
+        ]
+    }
+}

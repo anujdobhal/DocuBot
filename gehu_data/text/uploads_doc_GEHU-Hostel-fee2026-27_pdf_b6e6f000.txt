@@ -1,0 +1,133 @@
+--- Page 1 ---
+Hostel Name
+Single Non AC
+Double Non AC
+Triple Non AC
+Single AC
+Double AC
+Triple AC
+Hostel Security 
+(Refundable)
+One Time Registration fee
+CHANDRA SHEKHER AZAD 
+155000
+5000
+10000
+SARDAR PATEL HOSTEL 
+155000
+167000
+5000
+10000
+NETAJI SUBHASH CHANDRA 
+HOSTEL
+172500
+157500
+5000
+10000
+165000
+160000
+147500
+159000
+SARDAR BHAGAT SINGH 
+HOSTEL**
+210000
+185000
+170000
+230000
+205000
+190000
+10000
+10000
+AMRIT HOSTEL**
+177500
+162500
+190000
+175000
+10000
+10000
+ATLANTIS HOSTEL**
+210000
+185000
+170000
+230000
+205000
+190000
+10000
+10000
+10000
+Boys Hostel Fees (GEU & GEHU DDN)
+Session: 2026-2027
+5000
+SAI HOSTEL
+4 seater (Non AC) 135000
+4 seater (AC) 147000
+4 seater (Non AC) 135000
+4 seater (Non AC) 135000
+** With Special Menu
+Laundary Service Included & Hostel kit free for the new students
+
+--- Page 2 ---
+Hostel Name
+Single Non AC
+Double Non AC
+Triple Non AC
+Single AC
+Double AC
+Triple AC
+Hostel Security 
+(Refundable)
+One Time Registration fee
+LAXMI BAI HOSTEL
+152500
+167000
+5000
+10000
+PRIYADARSHANI HOSTEL
+155000
+164500
+5000
+10000
+SAROJANI HOSTEL
+157500
+167500
+5000
+10000
+MOTHER TERESSA HOSTEL
+135000
+120000
+5000
+10000
+155000
+142500
+154500
+NANDA DEVI  (Satya Hostel)
+135000
+120000
+5000
+10000
+MARINA HOSTEL **
+210000
+185000
+170000
+230000
+205000
+190000
+10000
+10000
+BHAGIRATHI HOSTEL 
+(Gautam Hostel) **
+177500
+162500
+190000
+175000
+10000
+10000
+5000
+10000
+** With Special Menu
+Laundary Service Included & Hostel kit free for the new students 
+ Girls Hostel Fees (GEU & GEHU DDN)
+Session: 2026-2027
+ALAKNANDA HOSTEL
+4 seater (Non AC)135000
+4 seater ( AC) 144000

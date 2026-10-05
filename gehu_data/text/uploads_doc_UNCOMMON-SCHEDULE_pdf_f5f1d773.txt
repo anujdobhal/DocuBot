@@ -1,0 +1,3 @@
+Title: Automatically generated PDF from existing images.
+Source Document URL: https://ddn-gehu-ac-in.s3-accelerate.amazonaws.com/uploads/doc/UNCOMMON-SCHEDULE.pdf
+Notice: Scanned official GEHU document (saved as uploads_doc_UNCOMMON-SCHEDULE_pdf_f5f1d773.pdf).
