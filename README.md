@@ -1,218 +1,210 @@
-# College RAG Assistant & Admin Portal - Frontend
+# DocuBot
 
-A modern, responsive, and secure frontend built with React, Vite, and Tailwind CSS for the College Retrieval-Augmented Generation (RAG) Chatbot project.
+DocuBot is a document-aware RAG (Retrieval-Augmented Generation) project for a college or academic knowledge assistant. It allows users to upload policy and academic documents, split them into searchable chunks, generate embeddings, and answer questions using the most relevant document content.
 
-This frontend interfaces cleanly with a Node.js backend to provide:
-1. **Public Student Chatbot**: An intuitive assistant where students can query college academic regulations, syllabus topics, and fee structures with verified citations and source documents.
-2. **Admin Management Portal**: A dashboard for college administrators to upload documents (PDF, DOCX, TXT), monitor asynchronous chunking and vector ingestion statuses, reprocess documents, and inspect metadata.
-
----
-
-## 1. What the Frontend Does
-
-- **Student Knowledge Assistant**: Enables students to submit independent academic questions and receive generated answers along with exact citations (document name, page number, excerpt).
-- **Admin Authentication**: Secures the administration portal via JWT session tokens without storing sensitive user passwords.
-- **Document Management**: Displays document metrics (Total, Completed, Processing, Failed), with real-time status badges, chunk counts, search filtering, and pagination.
-- **Document Ingestion**: Facilitates drag-and-drop file uploads with client-side validation for file types (`.pdf`, `.docx`, `.txt`) and file size limits (25MB).
-- **Document Actions**: Supports inspection of ingestion times and error logs, reprocessing failed documents, refreshing status, and explicit confirmation before deletion.
-- **Strict Boundary Separation**: Zero direct contact with vector databases (Qdrant) or LLMs. All interactions flow exclusively through standard REST endpoints exposed by the Node.js backend.
+This repository currently contains:
+- a React + Vite frontend for the student chatbot and admin portal
+- an Express backend for uploading, processing, indexing, and querying documents
+- a Qdrant vector database layer for semantic retrieval
+- a JSON-based local store for document and chunk metadata during development
 
 ---
 
-## 2. Installation
+## Project overview
 
-Ensure you have **Node.js** (v18.0.0 or higher) and **npm** installed.
+The system follows a standard RAG workflow:
+
+1. A document is uploaded or seeded into the backend.
+2. Text is extracted from the file.
+3. The content is cleaned and normalized.
+4. The text is split into smaller overlapping chunks.
+5. Each chunk is vectorized using an embedding model.
+6. The chunks are stored in a search index and in local JSON files.
+7. A user question is embedded and matched against the indexed chunks.
+8. The most relevant chunks are used as context to answer the question.
+
+This makes DocuBot useful for academic and administrative questions such as fee policies, regulations, course details, hostel policies, and similar college documentation.
+
+---
+
+## Current progress
+
+The project is in a working prototype stage with the core data flow already implemented:
+
+- frontend chat and admin views are present
+- backend APIs are active for document upload, document listing, reprocessing, and chat/search
+- the ingestion pipeline is implemented end-to-end
+- sample academic documents are automatically seeded when the backend starts with no stored records
+- chunking and embedding generation are working with the `Xenova/all-MiniLM-L6-v2` model
+- vectors are being stored in Qdrant, with a local JSON fallback for resilience and debugging
+
+This is not a final production deployment yet, but the basic RAG workflow is already functional and useful for document-based Q&A.
+
+---
+
+## Repository structure
+
+```text
+DocuBot/
+├── backend/
+│   ├── data/
+│   │   ├── documents.json
+│   │   └── chunks.json
+│   ├── src/
+│   │   ├── config/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   └── server.js
+│   └── package.json
+├── src/
+│   ├── components/
+│   ├── pages/
+│   └── App.jsx
+├── .env.example
+├── package.json
+├── vite.config.js
+├── README.md
+├── index.html
+└── .gitignore
+```
+
+---
+
+## Tech stack
+
+- Frontend: React, Vite, Tailwind CSS
+- Backend: Node.js + Express
+- Document parsing: `pdf-parse`, `mammoth`
+- Chunking: `@langchain/textsplitters`
+- Embeddings: `@xenova/transformers`
+- Vector database: Qdrant
+- Local persistence: JSON files under `backend/data`
+
+---
+
+## Backend processing flow
+
+The ingestion flow is implemented in the backend routes and services:
+
+1. `POST /api/documents/upload`
+   - receives a PDF, DOCX, or TXT file
+   - creates a document entry with `Processing` status
+
+2. `extractTextFromFile()`
+   - extracts raw text from the uploaded file
+
+3. `cleanText()` and `validateExtractedText()`
+   - clean and validate the extracted text before indexing
+
+4. `chunkText()`
+   - splits the cleaned text into smaller chunks using `RecursiveCharacterTextSplitter`
+   - default settings: `chunkSize = 500` and `chunkOverlap = 80`
+
+5. `generateChunkEmbeddings()`
+   - creates a 384-dimensional embedding for each chunk using the Xenova sentence-transformer model
+
+6. `store.storeChunks()`
+   - writes the chunk metadata locally and upserts vectors into Qdrant
+
+7. `POST /api/chat`
+   - embeds the user's question
+   - searches for similar chunks
+   - returns the matching passages as the retrieval context
+
+---
+
+## Where and how chunks are being stored
+
+Chunks are stored in two layers.
+
+### 1) Local JSON storage
+
+File: `backend/data/chunks.json`
+
+This file keeps the chunk records in plain JSON so they remain easy to inspect, debug, and recover without the Qdrant service. Each chunk stores metadata such as:
+- `document_id`
+- `chunk_index`
+- `text`
+- `title`
+- `fileName`
+- `fileType`
+- `category`
+- `vector`
+
+The document metadata is kept separately in:
+- `backend/data/documents.json`
+
+This file stores document id, name, type, upload date, status, chunk count, and processing metadata.
+
+### 2) Qdrant vector index
+
+The backend uses Qdrant through `backend/src/services/qdrant.service.js`.
+
+The relevant configuration is in `.env.example`:
+- `QDRANT_URL=http://localhost:6333`
+- `QDRANT_COLLECTION=gehu_documents`
+- `EMBEDDING_DIMENSION=384`
+
+When a document is processed, each chunk is uploaded as a Qdrant point with:
+- a vector embedding
+- `document_id`
+- `chunk_index`
+- the raw text
+- file metadata such as title and file name
+
+The system uses cosine similarity for retrieval. If Qdrant is unavailable, the app falls back to comparing vectors using the local JSON chunk records in `backend/data/chunks.json`.
+
+In short: chunks are saved in JSON for persistence and also indexed in Qdrant for semantic search.
+
+---
+
+## Run the project
+
+### Install dependencies
 
 ```bash
-# Navigate to the frontend project folder
-cd major_project
-
-# Install dependencies
 npm install
+npm --prefix backend install
 ```
 
----
-
-## 3. How to Run the Frontend
-
-### Development Mode
-```bash
-npm run dev
-```
-The application will start on `http://localhost:3000` (or the port specified by Vite). Vite is configured with a development proxy that routes all `/api` requests directly to `http://localhost:5000`.
-
----
-
-## 4. Required Environment Variables
-
-Create a `.env` file in the root directory (you can copy `.env.example`):
+### Configure the environment
 
 ```bash
 cp .env.example .env
 ```
 
-| Variable | Default Value | Description |
-| :--- | :--- | :--- |
-| `VITE_API_BASE_URL` | `/api` | Base path/URL for the backend REST API endpoints. |
-| `VITE_USE_MOCK_FALLBACK` | `false` | When set to `true`, enables offline mock responses for previewing and testing UI states without running the backend server. |
+Make sure the backend variables match the local setup, especially:
+- `PORT=5000`
+- `QDRANT_URL=http://localhost:6333`
+- `QDRANT_COLLECTION=gehu_documents`
+- `EMBEDDING_MODEL=Xenova/all-MiniLM-L6-v2`
 
----
-
-## 5. Backend API URL Configuration
-
-The frontend connects to the backend through a centralized API service in `src/services/api.js`.
-
-- In **local development**, Vite automatically proxies requests from `/api` to the backend running at `http://localhost:5000` (configured in `vite.config.js`).
-- In **production**, set `VITE_API_BASE_URL` in `.env.production` to your deployed backend URL (e.g., `https://api.yourcollege.edu/api`).
-
----
-
-## 6. Available Pages & Routes
-
-| Route | Access | Component | Purpose |
-| :--- | :--- | :--- | :--- |
-| `/` | Public | `Chatbot.jsx` | User-facing college assistant with auto-scroll and source citations. |
-| `/login` | Public | `Login.jsx` | Admin authentication with loading state and client validation. |
-| `/admin/dashboard` | Protected (Admin) | `Dashboard.jsx` | Ingestion statistics cards, recent files, and quick upload link. |
-| `/admin/documents` | Protected (Admin) | `Documents.jsx` | Document table with search, pagination, details modal, and actions. |
-| `/admin/upload` | Protected (Admin) | `Upload.jsx` | Drag-and-drop document upload with format guidance. |
-
----
-
-## 7. Authentication Flow
-
-1. The admin visits `/login` and provides credentials (email/username and password).
-2. The form validates that fields are non-empty before dispatching `POST /api/auth/login`.
-3. Upon receiving a successful response (`{ token, user }`), the JWT token is saved in `localStorage` under `college_rag_auth_token`.
-4. Subsequent protected API calls automatically attach `Authorization: Bearer <token>` in request headers.
-5. All `/admin/*` routes are wrapped by `ProtectedRoute`. Unauthenticated users are redirected to `/login`.
-6. If the backend returns a `401 Unauthorized` or `403 Forbidden` status (expired session), the API interceptor clears local credentials and redirects to `/login` with an expiration notice: *"Your session has expired. Please log in again."*
-7. Logging out purges local tokens and notifies `POST /api/auth/logout`.
-
----
-
-## 8. Document Management Flow
-
-1. **Upload**: Administrator selects or drops a `.pdf`, `.docx`, or `.txt` file on `/admin/upload`. The frontend validates file type and file size (< 25MB).
-2. **Ingestion Submission**: The frontend sends a multipart form request to `POST /api/documents/upload`. The UI displays a non-blocking progress state.
-3. **Status Monitoring**: Documents appear in `/admin/documents` with a color-coded status badge:
-   - `Completed` (Green): Vector indexing is finished; chunk count is displayed.
-   - `Processing` (Yellow): Ingestion pipeline is currently parsing or embedding.
-   - `Failed` (Red): Ingestion failed; reason is viewable in the Details modal.
-   - `Pending` (Slate): Document is queued in backend processing queue.
-4. **View Details**: Clicking the eye icon opens a modal with timestamps (upload date, processing start/end duration), chunks created, and error diagnostics.
-5. **Reprocess**: Clicking the reprocess icon dispatches `POST /api/documents/:id/reprocess` to re-queue the document.
-6. **Refresh Status**: Administrator can refresh individual document statuses or re-fetch the entire table.
-7. **Deletion**: Clicking the trash icon triggers an explicit confirmation modal (`"Are you sure? This cannot be undone."`). Upon confirmation, it calls `DELETE /api/documents/:id`.
-
----
-
-## 9. Chatbot Flow
-
-1. Student opens `/` and sees the welcome greeting: *"Ask me anything about our college documents."*
-2. Student can click a suggested question chip or enter a query in the message box.
-3. Submitting the query sends `POST /api/chat` with `{ question: string }`.
-4. The user question is immediately stacked into the session message stream and an animated processing indicator is shown. Duplicate submissions are disabled while awaiting response.
-5. The backend queries the RAG system and responds with `{ answer: string, sources: [...] }`.
-6. The frontend renders the answer safely (without `innerHTML`) and displays collapsible source cards below the answer (document title, page number, snippet).
-7. The conversation smoothly auto-scrolls to the latest message.
-8. *Per specifications*: Each question is answered independently. No client-side conversational memory is assumed.
-
----
-
-## 10. Expected Backend APIs
-
-The frontend's centralized API module (`src/services/api.js`) expects the following REST contracts from the teammate's Node.js backend:
-
-### Authentication
-- `POST /api/auth/login`
-  - **Body**: `{ email: string, password: string }`
-  - **Response**: `{ token: string, user: { id: string, name: string, email: string, role: string } }`
-- `POST /api/auth/logout`
-  - **Headers**: `Authorization: Bearer <token>`
-  - **Response**: `{ success: true }`
-
-### Document Management
-- `GET /api/documents`
-  - **Query params**: `?search=&page=&limit=`
-  - **Headers**: `Authorization: Bearer <token>`
-  - **Response**: `{ documents: Array<Document>, total: number, page: number, totalPages: number }` (or an array of documents)
-- `POST /api/documents/upload`
-  - **Body**: `FormData` with field `file`
-  - **Headers**: `Authorization: Bearer <token>`
-  - **Response**: `{ message: string, document: Document }`
-- `GET /api/documents/:id`
-  - **Headers**: `Authorization: Bearer <token>`
-  - **Response**: `{ document: Document }`
-- `DELETE /api/documents/:id`
-  - **Headers**: `Authorization: Bearer <token>`
-  - **Response**: `{ success: true, message: string }`
-- `POST /api/documents/:id/reprocess`
-  - **Headers**: `Authorization: Bearer <token>`
-  - **Response**: `{ success: true, document: Document }`
-
-### Dashboard
-- `GET /api/dashboard/stats`
-  - **Headers**: `Authorization: Bearer <token>`
-  - **Response**: `{ total: number, completed: number, processing: number, failed: number }`
-  *(Note: If this endpoint is not implemented, the frontend will automatically calculate these counts from `GET /api/documents`)*
-
-### Chatbot
-- `POST /api/chat`
-  - **Body**: `{ question: string }`
-  - **Response**:
-    ```json
-    {
-      "answer": "String response from LLM",
-      "sources": [
-        {
-          "title": "College Academic Regulations 2026",
-          "page": 18,
-          "docName": "College_Academic_Regulations_2026.pdf",
-          "snippet": "Section 4.2 Attendance Requirement..."
-        }
-      ]
-    }
-    ```
-
-### Expected `Document` Object Structure
-```json
-{
-  "id": "doc-uuid",
-  "name": "Academic_Calendar_2026.pdf",
-  "type": "pdf",
-  "fileSize": 1048576,
-  "uploadedAt": "2026-10-02T10:00:00Z",
-  "uploadedBy": "Admin User",
-  "status": "Completed", // "Pending" | "Processing" | "Completed" | "Failed"
-  "chunkCount": 42,
-  "processingStartTime": "2026-10-02T10:00:02Z",
-  "processingEndTime": "2026-10-02T10:00:45Z",
-  "errorMessage": null
-}
-```
-
----
-
-## 11. Production Build
-
-To compile and bundle the frontend for production:
+### Start the backend
 
 ```bash
-npm run build
+npm run backend
 ```
 
-This creates an optimized build in the `dist/` directory.
+The backend runs at `http://localhost:5000`.
 
-To preview the production build locally:
+### Start the frontend
+
 ```bash
-npm run preview
+npm run dev
 ```
+
+The frontend is typically served at `http://localhost:5173`.
 
 ---
 
-## Security Best Practices Followed
-- **No Secrets in Source**: No LLM keys, database credentials, or vector DB secrets exist in frontend files.
-- **No Direct Vector Database Connections**: The frontend only speaks with the Node.js backend.
-- **XSS Protection**: Zero use of `dangerouslySetInnerHTML`. All user inputs, document titles, and AI-generated text are rendered safely via React JSX.
-- **Password Safety**: Passwords are sent over HTTPS to the backend and never persisted in storage.
+## Notes on current behavior
+
+- The backend auto-seeds a few sample documents on first run if the store is empty.
+- Uploaded files are restricted to `.pdf`, `.docx`, and `.txt` with a 25MB limit.
+- The project currently focuses on a working document search and Q&A flow rather than a full production deployment pipeline.
+
+---
+
+## Summary
+
+DocuBot is a working document-based RAG prototype built for academic and administrative information retrieval. The project has already implemented the main flow: document upload, extraction, cleaning, chunking, embedding generation, vector indexing, and question answering. Chunks are currently stored both in the local JSON store at `backend/data/chunks.json` and in the Qdrant vector collection `gehu_documents`, giving the project a reliable local fallback and a fast semantic search backend.
