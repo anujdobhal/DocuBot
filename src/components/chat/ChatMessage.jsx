@@ -54,10 +54,17 @@ export default function ChatMessage({ message }) {
           )}
         </div>
 
-        {/* Timestamp */}
-        <span className="text-[11px] text-slate-400 font-medium mt-1 px-1">
-          {formatHumanDate(message.timestamp)}
-        </span>
+        {/* Timestamp and Model Badge */}
+        <div className={`flex items-center gap-2 mt-1 px-1 ${isUser ? 'justify-end' : 'justify-start'}`}>
+          <span className="text-[11px] text-slate-400 font-medium">
+            {formatHumanDate(message.timestamp)}
+          </span>
+          {!isUser && !isError && (
+            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 text-slate-600 border border-slate-200">
+              {message.model || 'llama3.2:1b'}
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );

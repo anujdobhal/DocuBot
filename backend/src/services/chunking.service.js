@@ -1,6 +1,5 @@
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
-import dotenv from "dotenv";
-dotenv.config();
+import "../config/env.js";
 
 const splitter = new RecursiveCharacterTextSplitter({
   chunkSize: parseInt(process.env.CHUNK_SIZE) || 500,

@@ -3,8 +3,12 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "workspaces": [
+    "backend"
+  ],
   "scripts": {
     "dev": "vite",
+    "backend": "npm --prefix backend start",
     "build": "vite build",
     "preview": "vite preview"
   },

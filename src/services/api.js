@@ -1,4 +1,5 @@
-import { INITIAL_MOCK_DOCUMENTS, MOCK_CHAT_RESPONSES } from './mockData.js';
+import { INITIAL_MOCK_DOCUMENTS } from './mockData.js';
+import { ollamaService } from './ollamaService.js';
 
 // Base API configuration from Vite environment variable
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/$/, '');
@@ -248,6 +249,17 @@ export const api = {
   },
 
   /**
+   * Get chunks for a specific document
+   * @param {string} id
+   */
+  async getDocumentChunks(id) {
+    if (USE_MOCK_FALLBACK) {
+      return { documentId: id, totalChunks: 0, chunks: [] };
+    }
+    return await request(`/documents/${id}/chunks`, { method: 'GET' });
+  },
+
+  /**
    * Upload a new document (PDF, DOCX, TXT)
    * @param {File} file
    * @param {Function} onProgress
@@ -387,46 +399,28 @@ export const api = {
   },
 
   /**
-   * Submit a question to the Chatbot RAG pipeline
+   * Submit a question to the Chatbot powered dynamically by local llama3.2:1b
    * @param {string} question
+   * @param {Array} conversationHistory
+   * @param {Function} onToken - Optional token streaming callback
    */
-  async askQuestion(question) {
+  async askQuestion(question, conversationHistory = [], onToken = null) {
     if (!question || !question.trim()) {
       throw new Error('Please enter a valid question.');
     }
 
-    if (USE_MOCK_FALLBACK) {
-      console.warn('[API Service] Using mock fallback for askQuestion.');
-      await new Promise((r) => setTimeout(r, 1000));
-
-      const qLower = question.toLowerCase();
-      const matched = MOCK_CHAT_RESPONSES.find((item) =>
-        item.keywords.some((kw) => qLower.includes(kw))
-      );
-
-      if (matched) {
-        return {
-          answer: matched.answer,
-          sources: matched.sources,
-        };
-      }
-
-      return {
-        answer: `Based on the college documents in our repository, here is the relevant information regarding "${question}":\n\nPlease refer to the official college handbook or contact the administrative office for specific inquiries outside the published academic regulations.`,
-        sources: [
-          {
-            title: 'General College Information Bulletin',
-            page: 1,
-            docName: 'College_Academic_Regulations_2026.pdf',
-            snippet: 'Official publications of the Office of the Registrar and Academic Affairs.',
-          },
-        ],
-      };
-    }
-
-    return await request('/chat', {
-      method: 'POST',
-      body: JSON.stringify({ question: question.trim() }),
+    // Connect to local Ollama running llama3.2:1b
+    return await ollamaService.chat({
+      question: question.trim(),
+      conversationHistory,
+      onToken,
     });
+  },
+
+  /**
+   * Check health and availability of the local llama3.2:1b LLM model
+   */
+  async checkChatbotStatus() {
+    return await ollamaService.checkHealth();
   },
 };

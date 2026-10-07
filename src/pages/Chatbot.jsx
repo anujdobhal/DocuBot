@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
-  MessageSquare,
   Bot,
   RotateCcw,
   Sparkles,
-  HelpCircle,
   AlertCircle,
-  GraduationCap,
+  Cpu,
+  CheckCircle2,
+  XCircle,
 } from 'lucide-react';
 import ChatMessage from '../components/chat/ChatMessage';
 import ChatInput from '../components/chat/ChatInput';
@@ -20,9 +20,48 @@ export default function Chatbot() {
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
   const [selectedPrompt, setSelectedPrompt] = useState('');
+  const [llmStatus, setLlmStatus] = useState({
+    checking: true,
+    online: false,
+    modelName: 'llama3.2:1b',
+  });
 
   const messagesEndRef = useRef(null);
   const chatContainerRef = useRef(null);
+
+  // Check Ollama status on mount
+  useEffect(() => {
+    let isMounted = true;
+    async function checkModelHealth() {
+      try {
+        const status = await api.checkChatbotStatus();
+        if (isMounted) {
+          setLlmStatus({
+            checking: false,
+            online: status.online,
+            modelName: status.modelName || 'llama3.2:1b',
+            models: status.models || [],
+          });
+        }
+      } catch {
+        if (isMounted) {
+          setLlmStatus({
+            checking: false,
+            online: false,
+            modelName: 'llama3.2:1b',
+          });
+        }
+      }
+    }
+
+    checkModelHealth();
+    const interval = setInterval(checkModelHealth, 20000); // periodically refresh health
+
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
+  }, []);
 
   // Auto-scroll to bottom whenever messages change or loading state changes
   useEffect(() => {
@@ -37,45 +76,78 @@ export default function Chatbot() {
     setApiError(null);
     setSelectedPrompt('');
 
+    const currentQuestion = questionText.trim();
     const userMessage = {
       id: 'msg-' + Date.now(),
       sender: 'user',
-      text: questionText.trim(),
+      text: currentQuestion,
       timestamp: new Date().toISOString(),
     };
 
-    // Visually stack question immediately
-    setMessages((prev) => [...prev, userMessage]);
+    const botMessageId = 'msg-' + (Date.now() + 1) + '-bot';
+    const initialBotMessage = {
+      id: botMessageId,
+      sender: 'assistant',
+      text: '',
+      sources: [],
+      model: llmStatus.modelName || 'llama3.2:1b',
+      timestamp: new Date().toISOString(),
+    };
+
+    // Append user message and prepared streaming assistant placeholder
+    setMessages((prev) => [...prev, userMessage, initialBotMessage]);
     setIsLoading(true);
 
     try {
-      // Per instructions: each question is submitted independently to the backend
-      const response = await api.askQuestion(questionText.trim());
+      // Pass previous conversational messages so llama3.2:1b maintains conversation context
+      const conversationHistory = [...messages, userMessage];
 
-      const botMessage = {
-        id: 'msg-' + Date.now() + '-bot',
-        sender: 'assistant',
-        text: response.answer || response.response || response.message || 'No answer returned.',
-        sources: response.sources || [],
-        timestamp: new Date().toISOString(),
-      };
+      const response = await api.askQuestion(
+        currentQuestion,
+        conversationHistory,
+        (tokenChunk, accumulatedText) => {
+          // Live token streaming update
+          setMessages((prev) =>
+            prev.map((msg) =>
+              msg.id === botMessageId
+                ? { ...msg, text: accumulatedText }
+                : msg
+            )
+          );
+        }
+      );
 
-      setMessages((prev) => [...prev, botMessage]);
+      // Finalize bot message with response and grounding sources
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === botMessageId
+            ? {
+                ...msg,
+                text: response.answer || msg.text || 'No response generated.',
+                sources: response.sources || [],
+                model: response.model || llmStatus.modelName || 'llama3.2:1b',
+              }
+            : msg
+        )
+      );
     } catch (err) {
       const errorMessage =
-        err.message || 'Unable to connect to the chatbot service. Please try again.';
+        err.message || 'Unable to connect to the local llama3.2:1b model.';
       setApiError(errorMessage);
 
-      // Render error message bubble in the stream
-      const errorMsgObj = {
-        id: 'msg-' + Date.now() + '-err',
-        sender: 'assistant',
-        text: `Error: ${errorMessage}`,
-        isError: true,
-        sources: [],
-        timestamp: new Date().toISOString(),
-      };
-      setMessages((prev) => [...prev, errorMsgObj]);
+      // Update bot message to show error
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === botMessageId
+            ? {
+                ...msg,
+                text: `Error connecting to local LLM: ${errorMessage}`,
+                isError: true,
+                sources: [],
+              }
+            : msg
+        )
+      );
     } finally {
       setIsLoading(false);
     }
@@ -96,11 +168,44 @@ export default function Chatbot() {
             <Bot className="w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-base font-bold text-slate-900 leading-tight">
-              College Knowledge Assistant
-            </h1>
+            <div className="flex items-center gap-2">
+              <h1 className="text-base font-bold text-slate-900 leading-tight">
+                DocuBot Assistant
+              </h1>
+              {/* Local LLM Engine Status Pill */}
+              <div
+                className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold transition-colors ${
+                  llmStatus.checking
+                    ? 'bg-slate-100 text-slate-600'
+                    : llmStatus.online
+                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                    : 'bg-rose-50 text-rose-700 border border-rose-200'
+                }`}
+                title={
+                  llmStatus.online
+                    ? `Local model ${llmStatus.modelName} active on Ollama`
+                    : 'Ollama is offline or unreachable'
+                }
+              >
+                <span
+                  className={`w-1.5 h-1.5 rounded-full ${
+                    llmStatus.checking
+                      ? 'bg-slate-400'
+                      : llmStatus.online
+                      ? 'bg-emerald-500 animate-pulse'
+                      : 'bg-rose-500'
+                  }`}
+                />
+                <span className="font-mono">
+                  {llmStatus.modelName}
+                </span>
+                <span className="text-[10px] text-slate-400 font-normal">
+                  {llmStatus.online ? '(Local)' : '(Offline)'}
+                </span>
+              </div>
+            </div>
             <p className="text-xs text-slate-500 font-medium">
-              Verified answers grounded in official college documents
+              Live college intelligence powered by local llama3.2:1b and university documents
             </p>
           </div>
         </div>
@@ -147,8 +252,8 @@ export default function Chatbot() {
               <ChatMessage key={msg.id} message={msg} />
             ))}
 
-            {/* Assistant Typing / Retrieval Indicator */}
-            {isLoading && (
+            {/* Assistant Retrieval & Thought Indicator */}
+            {isLoading && messages[messages.length - 1]?.text === '' && (
               <div className="flex items-start gap-3 my-4 animate-in fade-in duration-200">
                 <div className="w-9 h-9 rounded-xl bg-brand-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-brand-500/20">
                   <Bot className="w-5 h-5" />
@@ -156,7 +261,7 @@ export default function Chatbot() {
                 <div className="px-5 py-3.5 rounded-2xl rounded-tl-none bg-white border border-slate-200/90 shadow-sm flex items-center gap-3">
                   <Spinner size="sm" className="text-brand-600" />
                   <span className="text-xs font-semibold text-slate-600">
-                    Retrieving document chunks & synthesizing answer...
+                    llama3.2:1b thinking & retrieving university context...
                   </span>
                 </div>
               </div>

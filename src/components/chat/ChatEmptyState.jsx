@@ -15,12 +15,17 @@ export default function ChatEmptyState({ onSelectPrompt }) {
         <GraduationCap className="w-8 h-8" />
       </div>
 
+      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold mb-3">
+        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+        Local AI Engine: llama3.2:1b
+      </div>
+
       <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
-        Ask me anything about our college documents.
+        Ask me anything about our college.
       </h2>
 
       <p className="mt-2 text-sm text-slate-500 leading-relaxed max-w-md">
-        I am an AI assistant indexing college regulations, course syllabi, fee schedules, and campus guidelines. Each question is researched directly against verified college documents.
+        Powered directly by your local <span className="font-semibold text-slate-700">llama3.2:1b</span> model and grounded in official Graphic Era Hill University documents. Private, fast, and completely dynamic.
       </p>
 
       {/* Suggested Questions */}
